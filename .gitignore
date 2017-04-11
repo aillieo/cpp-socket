@@ -1,10 +1,21 @@
 #win32
 
+
 *.sdf
-proj.win32/cpp-socket/Debug/*
-proj.win32/cpp-socket/Release/*
-proj.win32/Debug/*
-proj.win32/Release/*
+
+*.suo
+
+cpp-client/proj.win32/Debug/*
+
+cpp-client/proj.win32/Release/*
+
+cpp-client/proj.win32/cpp-client/Debug/*
+
+cpp-client/proj.win32/cpp-client/Release/*
+
 
 
 #xcode
+
+.DS_Store
+
