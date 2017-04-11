@@ -1,9 +1,16 @@
 #win32
 
-
 *.sdf
 
 *.suo
+
+cpp-server/proj.win32/Debug/*
+
+cpp-server/proj.win32/Release/*
+
+cpp-server/proj.win32/cpp-server/Debug/*
+
+cpp-server/proj.win32/cpp-server/Release/*
 
 cpp-client/proj.win32/Debug/*
 
@@ -12,8 +19,6 @@ cpp-client/proj.win32/Release/*
 cpp-client/proj.win32/cpp-client/Debug/*
 
 cpp-client/proj.win32/cpp-client/Release/*
-
-
 
 #xcode
 

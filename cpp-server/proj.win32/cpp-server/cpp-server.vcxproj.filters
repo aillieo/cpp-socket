@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\cpp-server\main.cpp" />
+    <ClCompile Include="..\..\cpp-server\Message.cpp" />
+    <ClCompile Include="..\..\cpp-server\SocketServer.cpp" />
+    <ClCompile Include="..\..\cpp-server\ConnectionManager.cpp" />
+    <ClCompile Include="..\..\cpp-server\DataManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cpp-server\Config.h" />
+    <ClInclude Include="..\..\cpp-server\Message.h" />
+    <ClInclude Include="..\..\cpp-server\SocketServer.h" />
+    <ClInclude Include="..\..\cpp-server\ConnectionManager.h" />
+    <ClInclude Include="..\..\cpp-server\DataManager.h" />
+  </ItemGroup>
+</Project>
