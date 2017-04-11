@@ -1,0 +1,7 @@
+#win32
+
+*.sdf
+proj.win32/cpp-socket/Debug/*
+proj.win32/cpp-socket/Release/*
+proj.win32/Debug/*
+proj.win32/Release/*

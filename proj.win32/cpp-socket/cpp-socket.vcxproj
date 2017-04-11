@@ -11,20 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Buffer.h" />
-    <ClInclude Include="CommunicationManager.h" />
-    <ClInclude Include="Config.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="SocketClient.h" />
-    <ClInclude Include="UIDisplayer.h" />
+    <ClInclude Include="..\..\cpp-socket\Buffer.h" />
+    <ClInclude Include="..\..\cpp-socket\CommunicationManager.h" />
+    <ClInclude Include="..\..\cpp-socket\Config.h" />
+    <ClInclude Include="..\..\cpp-socket\Message.h" />
+    <ClInclude Include="..\..\cpp-socket\SocketClient.h" />
+    <ClInclude Include="..\..\cpp-socket\UIDisplayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="CommunicationManager.cpp" />
-    <ClCompile Include="cpp-socket.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="SocketClient.cpp" />
-    <ClCompile Include="UIDisplayer.cpp" />
+    <ClCompile Include="..\..\cpp-socket\Buffer.cpp" />
+    <ClCompile Include="..\..\cpp-socket\CommunicationManager.cpp" />
+    <ClCompile Include="..\..\cpp-socket\cpp-socket.cpp" />
+    <ClCompile Include="..\..\cpp-socket\Message.cpp" />
+    <ClCompile Include="..\..\cpp-socket\SocketClient.cpp" />
+    <ClCompile Include="..\..\cpp-socket\UIDisplayer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0D6BA1C1-4842-416C-AFC7-B97903D98080}</ProjectGuid>
