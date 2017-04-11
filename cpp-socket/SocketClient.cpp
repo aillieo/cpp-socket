@@ -22,7 +22,7 @@ void SocketClient::sendMsg( const char* data, int length )
 
 	if (_socekt != 0)
 	{
-		int ret = send(_socekt, data, length, 0);
+		long ret = send(_socekt, data, length, 0);
 		if (ret < 0)
 		{
 			//printf("send error!");
@@ -35,7 +35,7 @@ void SocketClient::receiveMsg()
 {
 
 	char recvBuf[message_max_length];
-	int ret = 0;
+	long ret = 0;
 	while (true)
 	{
 		ret = recv(_socekt, recvBuf, sizeof(recvBuf), 0);
@@ -69,7 +69,10 @@ bool SocketClient::error( HSocket socket )
 {
 #ifdef WIN32
 	return socket == SOCKET_ERROR;
+#elif __APPLE__
+    return socket < 0;
 #endif
+
 }
 
 bool SocketClient::init()

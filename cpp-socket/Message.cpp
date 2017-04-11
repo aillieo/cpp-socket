@@ -16,7 +16,7 @@ Message::~Message(void)
 int Message::serializeToString(char* data )
 {
 	memset(data,0,sizeof(char)*message_max_length);
-	_length = 4 + strlen(_content.c_str());
+	_length = 4 + (int)strlen(_content.c_str());
 	memcpy(data,&_type,4);
 	memcpy(data+4,_content.c_str(),_length - 4 + 1);
 	return _length;

@@ -6,7 +6,12 @@
 #include <WinSock2.h>
 #pragma comment(lib, "WS2_32.lib")
 #define HSocket SOCKET
-#endif 
+#elif __APPLE__
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#define HSocket int
+#endif
 #include "SocketClient.h"
 
 class SocketClient

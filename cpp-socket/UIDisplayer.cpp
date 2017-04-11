@@ -6,6 +6,11 @@
 
 #ifdef WIN32
 #include <windows.h> 
+#define CHAR_ENTER '\r'
+#define NEW_LINE "\r\n"
+#elif __APPLE__
+#define CHAR_ENTER '\r'
+#define NEW_LINE "\r"
 #endif
 
 using std::string;
@@ -66,7 +71,7 @@ void UIDisplayer::_clearScreen()
 	system("cls");
 
 #else
-	system("clear");
+    system("clear");
 
 #endif
 }
@@ -80,7 +85,7 @@ void UIDisplayer::_seperate()
 		printf("-");
 		width--;
 	}
-	printf("\n");
+	printf(NEW_LINE);
 	
 }
 
@@ -113,21 +118,22 @@ bool UIDisplayer::init()
 
 void UIDisplayer::_displayMessage()
 {
-	int messageCount = _messagesWithFormat.size();
+	size_t messageCount = _messagesWithFormat.size();
 	for(int i = 0 ; i < messageCount ; i ++)
 	{
-		printf("%s\n",_messagesWithFormat.at(i).c_str());
+		printf("%s",_messagesWithFormat.at(i).c_str());
+        printf(NEW_LINE);
 	}
 }
 
 void UIDisplayer::_displayInput()
 {
-	int length = _input.size();
+	size_t length = _input.size();
 	for(int i = 0 ; i <length ; i ++)
 	{
 		printf("%c",_input[i]);
 	}
-	printf("\n");
+	printf(NEW_LINE);
 }
 
 
@@ -137,10 +143,10 @@ void UIDisplayer::handleInput( int input )
 	if(input == 8 && _input.size() != 0) {
 		_input.pop_back();
 	} 
-	else if(input == 13 && _input.size() != 0)
+	else if(input == CHAR_ENTER && _input.size() != 0)
 	{
 		std::string str = "";
-		int length = _input.size();
+		size_t length = _input.size();
 		for(int i = 0 ; i < length ; i++)
 		{
 			str.push_back((char)(_input[i]));
