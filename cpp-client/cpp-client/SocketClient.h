@@ -12,7 +12,6 @@
 #include <arpa/inet.h>
 #define HSocket int
 #endif
-#include "SocketClient.h"
 
 class SocketClient
 {
