@@ -8,9 +8,7 @@ int main()
 {
 
 	SocketServer* ss = SocketServer::getInstance();
-	ss->startServer(port);
-
-	system("pause");
+	ss->startServer();
 
 	return 0;
 }

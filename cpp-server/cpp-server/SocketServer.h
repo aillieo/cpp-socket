@@ -10,6 +10,9 @@
 #include <sys/socket.h>
 #define HSocket int
 #endif
+#include <mutex>
+#include <queue>
+#include "Message.h"
 
 class SocketServer
 {
@@ -20,7 +23,10 @@ public:
 	static void destroyInstance();
 
 
-	bool startServer(unsigned short port);
+	bool initServer();
+	
+	void startServer();
+	
 	void closeConnect(HSocket socket);
 
 	void cleanup();
@@ -32,14 +38,24 @@ private:
 
 	static SocketServer* _instance;
 
-	HSocket _socket;
-	unsigned short _port;
+	HSocket _socketServer;
+
+	std::vector<HSocket> _clients;
 
 	bool error(HSocket socket);
 
 	void _acceptClient();
 
 	void _onNewClientConnected(HSocket socket);
+
+	void _handleClientConnection(HSocket socket);
+
+	void _broadcastMessage();
+
+	std::mutex _messageQueueMutex;
+	std::mutex _mutex;
+
+	std::queue<Message> _messageQueue;
 
 };
 
