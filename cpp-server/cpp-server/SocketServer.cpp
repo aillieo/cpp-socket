@@ -234,19 +234,24 @@ void SocketServer::_broadcastMessage()
 		if(_messageQueue.size()>0)
 		{		
 			lock_guard<mutex> lk(_messageQueueMutex);
-			Message msg = _messageQueue.front();
+			Message _msg = _messageQueue.front();
 			_messageQueue.pop();
+			char* data = (char*)malloc(4 + sizeof(char)*message_max_length);
 			for (HSocket skt : _clients)
 			{
-				continue;
-				char data[message_max_length];
-				msg.serializeToString(data);
-				long ret = send(skt,data,sizeof(data),0);
+				Message msg;
+				msg.setType(0);
+				msg.setContent(_msg.getContent());
+				int len = msg.serializeToString(data+4);
+				memcpy(data,&len,4);
+				long ret = send(skt,data,len+4,0);
+				
 				if(ret < 0)
 				{
 					printf("broad cast error to client");
 				}
 			}
+			free(data);
 		}
 	}
 }
