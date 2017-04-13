@@ -41,8 +41,8 @@ void CommunicationManager::destroyInstance()
 bool CommunicationManager::init()
 {
 	_socket = new SocketClient();
-	_socket->connectServer(server, port);
-	return true;
+	bool ret = _socket->connectServer(server, port);
+	return ret;
 }
 
 void CommunicationManager::sendMessage( int type, std::string str )

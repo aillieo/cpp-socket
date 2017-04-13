@@ -16,10 +16,17 @@
 int main()
 {
 
+	CommunicationManager* cm = CommunicationManager::getInstance();
+	bool connect = cm->init();
+	if(!connect)
+	{
+		printf("cannot connect to server!\n");
+		system("pause");
+		return 0;
+	}
+
 	UIDisplayer* ui = UIDisplayer::getInstance();
 	ui->init();
-	CommunicationManager* cm = CommunicationManager::getInstance();
-	cm->init();
 
 #ifdef __APPLE__
 

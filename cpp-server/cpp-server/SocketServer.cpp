@@ -4,6 +4,7 @@
 
 using std::lock_guard;
 using std::mutex;
+using std::vector;
 
 SocketServer* SocketServer::_instance = nullptr;
 
@@ -224,7 +225,10 @@ void SocketServer::_handleClientConnection( HSocket socket )
 	}
 
 	_mutex.lock();
-	this->closeConnect(socket);
+	vector<HSocket>& clients = ConnectionManager::getInstance()->clients();
+	auto disconnectClient = find(clients.begin(),clients.end(),socket);
+	clients.erase(disconnectClient);
+	closeConnect(socket);
 	printf("%d disconnect! \n", socket);
 	_mutex.unlock();
 }
