@@ -14,6 +14,7 @@ SocketServer::SocketServer(void)
 
 SocketServer::~SocketServer(void)
 {
+	cleanup();
 }
 
 bool SocketServer::initServer()
@@ -183,7 +184,7 @@ bool SocketServer::error( HSocket socket )
 
 void SocketServer::_onNewClientConnected(HSocket socket)
 {
-	printf("new connect! %d\n",socket);
+	printf("%d connect!\n",socket);
 
 	ConnectionManager::getInstance()->clients().push_back(socket);
 
@@ -202,7 +203,7 @@ void SocketServer::_handleClientConnection( HSocket socket )
 		ret = recv(socket, buff, sizeof(buff), 0);
 		if (ret < 0)
 		{
-			printf("recv(%d) error!", socket);
+			//printf("recv(%d) error!", socket);
 			break;
 		}
 		else
@@ -224,6 +225,7 @@ void SocketServer::_handleClientConnection( HSocket socket )
 
 	_mutex.lock();
 	this->closeConnect(socket);
+	printf("%d disconnect! \n", socket);
 	_mutex.unlock();
 }
 

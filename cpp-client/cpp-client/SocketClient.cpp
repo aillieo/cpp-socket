@@ -79,26 +79,22 @@ bool SocketClient::init()
 {
 	
 
-
-	cleanup();
 #ifdef WIN32
 	WSADATA wsadata;
 	WSAStartup(MAKEWORD(2,1), &wsadata);
 #endif 
+	_inited = true;
+
 	_socekt = socket(AF_INET, SOCK_STREAM, 0);
 	if (error(_socekt))
 	{
 		//printf("init client error!");
-		_socekt = 0;
-		_inited = false;
+		return false;
 	}
 	else
 	{
-		_inited = true;
+		return true;
 	}
-
-	return _inited;
-
 }
 
 
@@ -144,5 +140,11 @@ void SocketClient::cleanup()
 		_mutex.unlock();
 	}
 
-	
+#ifdef WIN32
+	if (_inited)
+	{
+		WSACleanup();
+	}
+#endif 
+
 }

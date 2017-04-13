@@ -25,7 +25,6 @@ void MessageHandler::_startHandleMessage()
 {
 	while (true)
 	{
-
 		if(_messageQueue.size()>0)
 		{		
 			lock_guard<mutex> lk(_messageQueueMutex);
@@ -43,6 +42,8 @@ std::queue<Message>& MessageHandler::messageQueue()
 
 void MessageHandler::_handleMessage(Message& msg )
 {
+	
+	printf("type=%d, content=%s\n",msg.getType(),msg.getContent().c_str());
 	switch (msg.getType())
 	{
 	case MT_Broadcast:
@@ -57,6 +58,7 @@ void MessageHandler::_handleMessage(Message& msg )
 
 void MessageHandler::_broadcastMessage( Message& msg )
 {
+
 	char* data = (char*)malloc(4 + sizeof(char)*message_max_length);
 	for (HSocket skt : ConnectionManager::getInstance()->clients())
 	{
