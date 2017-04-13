@@ -13,6 +13,7 @@
 #include <mutex>
 #include <queue>
 #include "Message.h"
+#include "MessageHandler.h"
 
 class SocketServer
 {
@@ -40,7 +41,7 @@ private:
 
 	HSocket _socketServer;
 
-	std::vector<HSocket> _clients;
+
 
 	bool error(HSocket socket);
 
@@ -50,12 +51,13 @@ private:
 
 	void _handleClientConnection(HSocket socket);
 
-	void _broadcastMessage();
+	MessageHandler* _messageHandler;
 
-	std::mutex _messageQueueMutex;
+
 	std::mutex _mutex;
 
-	std::queue<Message> _messageQueue;
+	std::mutex _messageQueueMutex;
+
 
 };
 

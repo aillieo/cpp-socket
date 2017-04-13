@@ -5,11 +5,15 @@
     <ClCompile Include="..\..\cpp-server\Message.cpp" />
     <ClCompile Include="..\..\cpp-server\SocketServer.cpp" />
     <ClCompile Include="..\..\cpp-server\DataManager.cpp" />
+    <ClCompile Include="..\..\cpp-server\ConnectionManager.cpp" />
+    <ClCompile Include="..\..\cpp-server\MessageHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cpp-server\Config.h" />
     <ClInclude Include="..\..\cpp-server\Message.h" />
     <ClInclude Include="..\..\cpp-server\SocketServer.h" />
     <ClInclude Include="..\..\cpp-server\DataManager.h" />
+    <ClInclude Include="..\..\cpp-server\ConnectionManager.h" />
+    <ClInclude Include="..\..\cpp-server\MessageHandler.h" />
   </ItemGroup>
 </Project>

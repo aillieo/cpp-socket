@@ -2,6 +2,12 @@
 #include <string>
 #include <stdlib.h>
 
+enum MessageType
+{
+	MT_Broadcast = 0,
+};
+
+
 class Message
 {
 public:

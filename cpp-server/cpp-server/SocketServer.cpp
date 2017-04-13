@@ -1,5 +1,6 @@
 #include "SocketServer.h"
 #include <thread>
+#include "ConnectionManager.h"
 
 using std::lock_guard;
 using std::mutex;
@@ -92,12 +93,15 @@ void SocketServer::startServer()
 		return;
 	}
 
-	std::thread th(& SocketServer::_acceptClient, this);
-	printf("start server!\n");
-	th.detach();
+	ConnectionManager* cm = ConnectionManager::getInstance();
+	cm ->init();
 
-	std::thread th2(&SocketServer::_broadcastMessage,this);
-	th2.join();
+	_messageHandler = new MessageHandler();
+	_messageHandler->start();
+
+	std::thread th(& SocketServer::_acceptClient, this);
+	printf("start server port %u ...\n",port);
+	th.join();
 
 }
 
@@ -181,7 +185,7 @@ void SocketServer::_onNewClientConnected(HSocket socket)
 {
 	printf("new connect! %d\n",socket);
 
-	_clients.push_back(socket);
+	ConnectionManager::getInstance()->clients().push_back(socket);
 
 	std::thread th(&SocketServer::_handleClientConnection, this, socket);
 	th.detach();
@@ -212,10 +216,7 @@ void SocketServer::_handleClientConnection( HSocket socket )
 				{
 					Message msg;
 					msg.ParseFromString(buff+4,len);
-					if(msg.getType() == 0)
-					{
-						_messageQueue.push(msg);
-					}
+					_messageHandler->messageQueue().push(msg);
 				}
 			}
 		}
@@ -226,32 +227,5 @@ void SocketServer::_handleClientConnection( HSocket socket )
 	_mutex.unlock();
 }
 
-void SocketServer::_broadcastMessage()
-{
-	while (true)
-	{
 
-		if(_messageQueue.size()>0)
-		{		
-			lock_guard<mutex> lk(_messageQueueMutex);
-			Message _msg = _messageQueue.front();
-			_messageQueue.pop();
-			char* data = (char*)malloc(4 + sizeof(char)*message_max_length);
-			for (HSocket skt : _clients)
-			{
-				Message msg;
-				msg.setType(0);
-				msg.setContent(_msg.getContent());
-				int len = msg.serializeToString(data+4);
-				memcpy(data,&len,4);
-				long ret = send(skt,data,len+4,0);
-				
-				if(ret < 0)
-				{
-					printf("broad cast error to client");
-				}
-			}
-			free(data);
-		}
-	}
-}
+

@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Message.h"
+#include <mutex>
 
 
 class UIDisplayer
@@ -30,6 +31,8 @@ private:
 
 	void _display();
 
+	bool _needRefresh;
+
 	std::deque<std::string> _messagesWithFormat;
 	std::queue<Message> _messageQueue;
 	std::vector<int> _input;
@@ -42,6 +45,8 @@ private:
 
 
 	void hideCursor();
+
+	std::mutex _multex;
 
 };
 

@@ -98,10 +98,16 @@ void UIDisplayer::_display()
 {
 	while(true)
 	{
-		_clearScreen();
-		_displayMessage();
-		_seperate();
-		_displayInput();
+		_multex.lock();
+		if(_needRefresh)
+		{
+			_clearScreen();
+			_displayMessage();
+			_seperate();
+			_displayInput();
+		}
+		_needRefresh = false;
+		_multex.unlock();
 	}
 }
 
@@ -160,6 +166,7 @@ void UIDisplayer::handleInput( int input )
 		_input.push_back(input);
 	}
 
+	_needRefresh = true;
 }
 
 void UIDisplayer::hideCursor()
@@ -182,6 +189,8 @@ void UIDisplayer::appendMessage( std::string str )
 		_messagesWithFormat.pop_front();
 	}
 	_messagesWithFormat.push_back(str);
+
+	_needRefresh = true;
 
 }
 
