@@ -138,7 +138,11 @@ void SocketServer::closeConnect( HSocket socket )
 {
 
 #ifdef WIN32
-		closesocket(socket);
+    closesocket(socket);
+#elif __APPLE__
+    
+    close(socket);
+    
 #endif
 
 }

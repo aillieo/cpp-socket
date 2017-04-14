@@ -61,8 +61,8 @@ void SocketClient::receiveMsg()
 void SocketClient::closeConnect( HSocket socket )
 {
 #ifdef WIN32
-	closesocket(socket);
-#elifdef __APPLE__
+    closesocket(socket);
+#elif __APPLE__
     close(socket);
 #endif
 }
