@@ -2,6 +2,10 @@
 #include <thread>
 #include "ConnectionManager.h"
 
+#ifdef __APPLE__
+#define gethostname gethostbyname2
+#endif
+
 using std::lock_guard;
 using std::mutex;
 using std::vector;
@@ -71,12 +75,14 @@ bool SocketServer::initServer()
 			printf("listen error!");
 			break;
 		}
-		
+
+        /*
 		char hostName[256];
-		gethostname(hostName, sizeof(hostName));
+        gethostname(hostName, sizeof(hostName));
 		struct hostent* hostInfo = gethostbyname(hostName);
 		char* ip = inet_ntoa(*(struct in_addr *)*hostInfo->h_addr_list);
-		
+		*/
+        
 		return true;
 
 	} while (0);
@@ -133,8 +139,6 @@ void SocketServer::closeConnect( HSocket socket )
 
 #ifdef WIN32
 		closesocket(socket);
-#elif __APPLE__
-		close(socket);
 #endif
 
 }

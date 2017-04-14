@@ -21,7 +21,9 @@ int main()
 	if(!connect)
 	{
 		printf("cannot connect to server!\n");
-		system("pause");
+#ifdef WIN32
+        system("pause");
+#endif
 		return 0;
 	}
 

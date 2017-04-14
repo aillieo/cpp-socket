@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A364DFF01E9CE3DF001DDE7A /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFE41E9CE3DF001DDE7A /* Buffer.cpp */; };
-		A364DFF11E9CE3DF001DDE7A /* CommunicationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFE61E9CE3DF001DDE7A /* CommunicationManager.cpp */; };
-		A364DFF21E9CE3DF001DDE7A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFE91E9CE3DF001DDE7A /* main.cpp */; };
-		A364DFF31E9CE3DF001DDE7A /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFEA1E9CE3DF001DDE7A /* Message.cpp */; };
-		A364DFF41E9CE3DF001DDE7A /* SocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFEC1E9CE3DF001DDE7A /* SocketClient.cpp */; };
-		A364DFF51E9CE3DF001DDE7A /* UIDisplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A364DFEE1E9CE3DF001DDE7A /* UIDisplayer.cpp */; };
 		A364DFF81E9CE3F7001DDE7A /* libcurses.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A364DFF71E9CE3F7001DDE7A /* libcurses.tbd */; };
+		A370B90A1EA0E7EF0039837B /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B8FE1EA0E7EF0039837B /* Buffer.cpp */; };
+		A370B90B1EA0E7EF0039837B /* CommunicationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B9001EA0E7EF0039837B /* CommunicationManager.cpp */; };
+		A370B90C1EA0E7EF0039837B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B9031EA0E7EF0039837B /* main.cpp */; };
+		A370B90D1EA0E7EF0039837B /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B9041EA0E7EF0039837B /* Message.cpp */; };
+		A370B90E1EA0E7EF0039837B /* SocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B9061EA0E7EF0039837B /* SocketClient.cpp */; };
+		A370B90F1EA0E7EF0039837B /* UIDisplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370B9081EA0E7EF0039837B /* UIDisplayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,19 +30,19 @@
 
 /* Begin PBXFileReference section */
 		A364DFDA1E9CE253001DDE7A /* cpp-client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cpp-client"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A364DFE41E9CE3DF001DDE7A /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Buffer.cpp; path = "../../../cpp-client/Buffer.cpp"; sourceTree = "<group>"; };
-		A364DFE51E9CE3DF001DDE7A /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buffer.h; path = "../../../cpp-client/Buffer.h"; sourceTree = "<group>"; };
-		A364DFE61E9CE3DF001DDE7A /* CommunicationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommunicationManager.cpp; path = "../../../cpp-client/CommunicationManager.cpp"; sourceTree = "<group>"; };
-		A364DFE71E9CE3DF001DDE7A /* CommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationManager.h; path = "../../../cpp-client/CommunicationManager.h"; sourceTree = "<group>"; };
-		A364DFE81E9CE3DF001DDE7A /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = "../../../cpp-client/Config.h"; sourceTree = "<group>"; };
-		A364DFE91E9CE3DF001DDE7A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "../../../cpp-client/main.cpp"; sourceTree = "<group>"; };
-		A364DFEA1E9CE3DF001DDE7A /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = "../../../cpp-client/Message.cpp"; sourceTree = "<group>"; };
-		A364DFEB1E9CE3DF001DDE7A /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = "../../../cpp-client/Message.h"; sourceTree = "<group>"; };
-		A364DFEC1E9CE3DF001DDE7A /* SocketClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SocketClient.cpp; path = "../../../cpp-client/SocketClient.cpp"; sourceTree = "<group>"; };
-		A364DFED1E9CE3DF001DDE7A /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketClient.h; path = "../../../cpp-client/SocketClient.h"; sourceTree = "<group>"; };
-		A364DFEE1E9CE3DF001DDE7A /* UIDisplayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIDisplayer.cpp; path = "../../../cpp-client/UIDisplayer.cpp"; sourceTree = "<group>"; };
-		A364DFEF1E9CE3DF001DDE7A /* UIDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDisplayer.h; path = "../../../cpp-client/UIDisplayer.h"; sourceTree = "<group>"; };
 		A364DFF71E9CE3F7001DDE7A /* libcurses.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurses.tbd; path = usr/lib/libcurses.tbd; sourceTree = SDKROOT; };
+		A370B8FE1EA0E7EF0039837B /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
+		A370B8FF1EA0E7EF0039837B /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
+		A370B9001EA0E7EF0039837B /* CommunicationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommunicationManager.cpp; sourceTree = "<group>"; };
+		A370B9011EA0E7EF0039837B /* CommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationManager.h; sourceTree = "<group>"; };
+		A370B9021EA0E7EF0039837B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		A370B9031EA0E7EF0039837B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A370B9041EA0E7EF0039837B /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
+		A370B9051EA0E7EF0039837B /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A370B9061EA0E7EF0039837B /* SocketClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketClient.cpp; sourceTree = "<group>"; };
+		A370B9071EA0E7EF0039837B /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
+		A370B9081EA0E7EF0039837B /* UIDisplayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIDisplayer.cpp; sourceTree = "<group>"; };
+		A370B9091EA0E7EF0039837B /* UIDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDisplayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,20 +77,21 @@
 		A364DFDC1E9CE253001DDE7A /* cpp-client */ = {
 			isa = PBXGroup;
 			children = (
-				A364DFE41E9CE3DF001DDE7A /* Buffer.cpp */,
-				A364DFE51E9CE3DF001DDE7A /* Buffer.h */,
-				A364DFE61E9CE3DF001DDE7A /* CommunicationManager.cpp */,
-				A364DFE71E9CE3DF001DDE7A /* CommunicationManager.h */,
-				A364DFE81E9CE3DF001DDE7A /* Config.h */,
-				A364DFE91E9CE3DF001DDE7A /* main.cpp */,
-				A364DFEA1E9CE3DF001DDE7A /* Message.cpp */,
-				A364DFEB1E9CE3DF001DDE7A /* Message.h */,
-				A364DFEC1E9CE3DF001DDE7A /* SocketClient.cpp */,
-				A364DFED1E9CE3DF001DDE7A /* SocketClient.h */,
-				A364DFEE1E9CE3DF001DDE7A /* UIDisplayer.cpp */,
-				A364DFEF1E9CE3DF001DDE7A /* UIDisplayer.h */,
+				A370B8FE1EA0E7EF0039837B /* Buffer.cpp */,
+				A370B8FF1EA0E7EF0039837B /* Buffer.h */,
+				A370B9001EA0E7EF0039837B /* CommunicationManager.cpp */,
+				A370B9011EA0E7EF0039837B /* CommunicationManager.h */,
+				A370B9021EA0E7EF0039837B /* Config.h */,
+				A370B9031EA0E7EF0039837B /* main.cpp */,
+				A370B9041EA0E7EF0039837B /* Message.cpp */,
+				A370B9051EA0E7EF0039837B /* Message.h */,
+				A370B9061EA0E7EF0039837B /* SocketClient.cpp */,
+				A370B9071EA0E7EF0039837B /* SocketClient.h */,
+				A370B9081EA0E7EF0039837B /* UIDisplayer.cpp */,
+				A370B9091EA0E7EF0039837B /* UIDisplayer.h */,
 			);
-			path = "cpp-client";
+			name = "cpp-client";
+			path = "../../cpp-client";
 			sourceTree = "<group>";
 		};
 		A364DFF61E9CE3F7001DDE7A /* Frameworks */ = {
@@ -159,12 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A364DFF11E9CE3DF001DDE7A /* CommunicationManager.cpp in Sources */,
-				A364DFF21E9CE3DF001DDE7A /* main.cpp in Sources */,
-				A364DFF01E9CE3DF001DDE7A /* Buffer.cpp in Sources */,
-				A364DFF31E9CE3DF001DDE7A /* Message.cpp in Sources */,
-				A364DFF51E9CE3DF001DDE7A /* UIDisplayer.cpp in Sources */,
-				A364DFF41E9CE3DF001DDE7A /* SocketClient.cpp in Sources */,
+				A370B90B1EA0E7EF0039837B /* CommunicationManager.cpp in Sources */,
+				A370B90F1EA0E7EF0039837B /* UIDisplayer.cpp in Sources */,
+				A370B90D1EA0E7EF0039837B /* Message.cpp in Sources */,
+				A370B90A1EA0E7EF0039837B /* Buffer.cpp in Sources */,
+				A370B90E1EA0E7EF0039837B /* SocketClient.cpp in Sources */,
+				A370B90C1EA0E7EF0039837B /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +263,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = PV5EAJ7Z55;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -270,6 +273,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = PV5EAJ7Z55;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

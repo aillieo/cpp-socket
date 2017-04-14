@@ -8,6 +8,9 @@
 #define HSocket SOCKET
 #elif __APPLE__
 #include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 #define HSocket int
 #endif
 #include <mutex>
