@@ -42,7 +42,7 @@ int main()
 
 #ifdef __APPLE__
     
-    endwin();
+    //endwin();
 #endif
 
 	return 0;

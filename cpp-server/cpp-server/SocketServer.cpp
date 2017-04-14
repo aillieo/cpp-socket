@@ -147,7 +147,7 @@ void SocketServer::closeConnect( HSocket socket )
 void SocketServer::_acceptClient()
 {
 
-	int len = sizeof(sockaddr);
+	socklen_t len = sizeof(sockaddr);
 	struct sockaddr_in sockAddr;
 	while (true)
 	{	
@@ -191,7 +191,7 @@ void SocketServer::_onNewClientConnected(HSocket socket)
 {
 	printf("%d connect!\n",socket);
 
-	ConnectionManager::getInstance()->clients().push_back(socket);
+	ConnectionManager::getInstance()->addClient(socket);
 
 	std::thread th(&SocketServer::_handleClientConnection, this, socket);
 	th.detach();
@@ -201,7 +201,7 @@ void SocketServer::_onNewClientConnected(HSocket socket)
 void SocketServer::_handleClientConnection( HSocket socket )
 {
 	char buff[message_max_length];
-	int ret = 0;
+	ssize_t ret = 0;
 
 	while (true)
 	{
@@ -229,9 +229,7 @@ void SocketServer::_handleClientConnection( HSocket socket )
 	}
 
 	_mutex.lock();
-	vector<HSocket>& clients = ConnectionManager::getInstance()->clients();
-	auto disconnectClient = find(clients.begin(),clients.end(),socket);
-	clients.erase(disconnectClient);
+    ConnectionManager::getInstance()->removeClient(socket);
 	closeConnect(socket);
 	printf("%d disconnect! \n", socket);
 	_mutex.unlock();

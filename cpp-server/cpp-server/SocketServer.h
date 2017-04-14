@@ -6,11 +6,13 @@
 #include <WinSock2.h>
 #pragma comment(lib, "WS2_32.lib")
 #define HSocket SOCKET
+#define socklen_t int
 #elif __APPLE__
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <unistd.h>
 #define HSocket int
 #endif
 #include <mutex>

@@ -46,4 +46,20 @@ bool ConnectionManager::init()
 	return true;
 }
 
+const size_t ConnectionManager::addClient(HSocket client)
+{
+    _clients.push_back(client);
+    printf("current users: %ld\n", _clients.size());
+    return _clients.size();
+}
+
+
+const size_t ConnectionManager::removeClient(HSocket client)
+{
+    auto disconnectClient = find(_clients.begin(),_clients.end(),client);
+    _clients.erase(disconnectClient);
+    printf("current users: %ld\n", _clients.size());
+    return _clients.size();
+}
+
 

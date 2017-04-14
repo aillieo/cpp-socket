@@ -19,6 +19,9 @@ public:
 
 	std::vector<HSocket>& clients();
 
+    const size_t addClient(HSocket client);
+    const size_t removeClient(HSocket client);
+    
 private:
 
 	ConnectionManager(void);
