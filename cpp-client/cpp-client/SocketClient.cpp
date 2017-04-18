@@ -34,19 +34,34 @@ void SocketClient::sendMsg( const char* data, int length )
 void SocketClient::receiveMsg()
 {
 
-	char recvBuf[message_max_length];
+	char recvBuf[message_max_length + 4] = {0};
 	long ret = 0;
+	int len = 0;
 	while (true)
 	{
-		ret = recv(_socekt, recvBuf, sizeof(recvBuf), 0);
+		ret = recv(_socekt, recvBuf, 4, 0);
 		if (ret < 0)
 		{
 			//printf("recv error!");
 			break;
 		}
-		if (ret > 0)
+		else if (ret > 0)
 		{
-			CommunicationManager::getInstance()->receive(recvBuf, sizeof(recvBuf));
+			memcpy(&len, recvBuf, 4);
+			if(len <= 0)
+			{
+				break;
+			}
+		}
+
+		ret = recv(_socekt, recvBuf+4, len, 0);
+		if (ret <= 0)
+		{
+			break;
+		}
+		else if (ret > 0)
+		{
+			CommunicationManager::getInstance()->receive(recvBuf+4, len);
 		}
 	}
 	_mutex.lock();

@@ -204,31 +204,42 @@ void SocketServer::_onNewClientConnected(HSocket socket)
 
 void SocketServer::_handleClientConnection( HSocket socket )
 {
-	char buff[message_max_length];
+	char buff[message_max_length + 4] = {0};
 	ssize_t ret = 0;
-
+	int len = 0;
+	//Sleep(5000);
 	while (true)
 	{
-		ret = recv(socket, buff, sizeof(buff), 0);
+		ret = recv(socket, buff, 4, 0);
 		if (ret < 0)
 		{
 			//printf("recv(%d) error!", socket);
 			break;
 		}
-		else
+
+		else if(ret > 0)
 		{
-			if (ret > 0)
+			memcpy(&len, buff, 4);
+			if(len <= 0)
 			{
-				lock_guard<mutex> lk(_messageQueueMutex);
-				int len = 0;
-				memcpy(&len, buff, 4);
-				if(len>0)
-				{
-					Message msg;
-					msg.ParseFromString(buff+4,len);
-					_messageHandler->messageQueue().push(msg);
-				}
+				break;
 			}
+		}
+
+
+		ret = recv(socket, buff+4, len, 0);
+		if (ret <= 0)
+		{
+			//printf("recv(%d) error!", socket);
+			break;
+		}
+		else if (ret > 0)
+		{
+			lock_guard<mutex> lk(_messageQueueMutex);
+
+			Message msg;
+			msg.ParseFromString(buff+4,len);
+			_messageHandler->messageQueue().push(msg);	
 		}
 	}
 

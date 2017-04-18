@@ -60,10 +60,8 @@ void CommunicationManager::sendMessage( int type, std::string str )
 
 void CommunicationManager::receive( const char* data, int length )
 {
-	int len = 0;
-	memcpy(&len,data,4);
 	Message msg;
-	msg.ParseFromString(data+4,len);
+	msg.ParseFromString(data,length);
 	_handleMessage(msg );
 }
 
