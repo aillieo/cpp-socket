@@ -1,4 +1,11 @@
 #pragma once
+
+#ifdef __APPLE__
+
+#define size_t unsigned int
+
+#endif
+
 class Buffer
 {
 public:
